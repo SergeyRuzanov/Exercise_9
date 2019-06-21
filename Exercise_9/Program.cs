@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Exercise_9
 {
@@ -10,7 +7,7 @@ namespace Exercise_9
     {
         public ListItem()
         {
-            Content = 0;
+            Content = 1;
             NextItem = null;
         }
         public int Content;
@@ -21,18 +18,10 @@ namespace Exercise_9
     {
         static void Main(string[] args)
         {
-            int N = 5;//TODO доделать интерфейс
-            ListItem head = new ListItem() { Content = 1 };
-            MakeList(N, head);
-            ShowList(head);
-            head = Del(head, 8);
-            ShowList(head);
-            int i = 0;
-            Console.WriteLine(IndexOf(head, 4, ref i));
-            Console.ReadLine();
+            Application.Run(new Form1());
         }
 
-        static void ShowList(ListItem head)
+        public static void ShowList(ListItem head)
         {
             Console.Write(head.Content + "  ");
             if (head.NextItem != null)
@@ -45,7 +34,7 @@ namespace Exercise_9
             }
         }
 
-        static int IndexOf(ListItem head, int k, ref int i)
+        public static int IndexOf(ListItem head, int k, ref int i)
         {
             if (head.Content == k)
             {
@@ -65,7 +54,7 @@ namespace Exercise_9
             }
         }
 
-        static ListItem Del(ListItem head, int d)
+        public static ListItem Del(ListItem head, int d)
         {
             if (head.Content == d)
             {
@@ -86,7 +75,7 @@ namespace Exercise_9
             }
         }
 
-        static void MakeList(int n, ListItem head)
+        public static void MakeList(int n, ListItem head)
         {
             if (n - 1 > 0)
             {
