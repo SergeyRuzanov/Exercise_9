@@ -46,18 +46,25 @@ namespace Exercise_9
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            if (list == null)
+            try
+            {
+                if (list == null)
+                {
+                    Console.WriteLine("Список пуст.");
+                }
+                else
+                {
+                    int index = (int)numericUpDown2.Value;
+                    if (index >= 0)
+                    {
+                        list = Program.Del(list, index);
+                        Program.ShowList(list);
+                    }
+                }
+            }
+            catch (NullReferenceException)
             {
                 Console.WriteLine("Список пуст.");
-            }
-            else
-            {
-                int index = (int)numericUpDown2.Value;
-                if (index >= 0)
-                {
-                    list = Program.Del(list, index);
-                    Program.ShowList(list);
-                }
             }
         }
     }
